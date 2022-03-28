@@ -1,12 +1,12 @@
 import React from "react";
 
-function Search({ }) {
+function Search({ setSearchVid }) {
     return (
         <div className="ui search">
             <div className="ui icon input">
                 <input
                     className="prompt"
-                    onChange
+                    onChange {(e) => setSearchVid(e.target.value)}
                     placeholder="Search for a Character"
                 />
                 <i className="search icon" />

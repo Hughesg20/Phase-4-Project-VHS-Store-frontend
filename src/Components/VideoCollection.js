@@ -2,17 +2,13 @@ import React from "react";
 import VideoCard from "./VideoCard";
 import { Card } from "semantic-ui-react";
 
-function VideoCollection({ }) {
+function VideoCollection({ videos }) {
 
+    const card = videos.map((videoObj) => (
+        <VideoCard key={videoObj.id} videos={videoObj} />
+    ))
 
-
-
-    <CharacterCard />
-
-
-    return
-
-
+    return <Card.Group itemsPerRow={5}>{card}</Card.Group>;
 
 }
 

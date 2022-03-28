@@ -1,9 +1,10 @@
 import React from "react";
 import VideoCollection from "./VideoCollection";
-
+import Search from "./Search";
 import { Container } from "semantic-ui-react";
 
-function VideoPage({ }) {
+
+function VideoPage({ setSearchVid, videos }) {
 
 
 
@@ -13,11 +14,10 @@ function VideoPage({ }) {
         <Container textAlign={"center"}>
             <h1 style={{ fontFamily: "Cinzel Decorative" }}> Videos for Rent</h1>
             <br />
-            <Search />
+            <Search setSearchVid={setSearchVid} />
             <br />
-            <CharacterCollection />
+            <CharacterCollection videos={videos} />
         </Container>
-
     )
 }
 export default VideoPage;

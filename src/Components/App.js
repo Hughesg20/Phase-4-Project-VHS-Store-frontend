@@ -1,15 +1,20 @@
 import React, { useEffect, useState } from "react";
 import VideoPage from "./VideoPage";
+import Header from "./Header";
+import { Switch, Route } from "react-router-dom";
+import CharacterForm from "./CharacterForm";
+import HomePage from "./HomePage";
+import "../App.css";
 
 function App() {
-    const [videos, setVideos] - useState([])
-
+    const [videos, setVideos] = useState([])
+    const [searchVid, setSearchVid] = usetate("")
 
 
     useEffect(() => {
         fetch(" ")
             .then((r) => r.json())
-            .then(setEntries)
+            .then(data => setVideos(data))
     }, [])
 
 
@@ -27,7 +32,13 @@ function App() {
                     <HomePage />
                 </Route>
 
-
+                <Route path="/videos">
+                    <VideoPage
+                        setSearchVid={setSearchVid}
+                        videos={filteredVids}
+                    />
+                </Route>
+            </Switch>
         </div>
 
     )

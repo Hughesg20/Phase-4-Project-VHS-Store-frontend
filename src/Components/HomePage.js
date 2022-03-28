@@ -19,7 +19,7 @@ function HomePage() {
             <Button
                 style={{ marginBottom: 20 }}
                 type="button"
-                onClick={handleOnClick}
+                onClick
                 circular={true}
             >
                 View Videos
