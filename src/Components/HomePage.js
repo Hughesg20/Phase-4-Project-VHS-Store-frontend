@@ -1,10 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
-
 function HomePage({ user }) {
-
-
 
     return (
         <div align="center" className="homepage">
@@ -12,18 +9,21 @@ function HomePage({ user }) {
             <p>
                 Login/signup is required to rent a video
             </p>
+
+            {
+                !user && (
+                    <div className="signup-container">
+                        <NavLink to="/signup">
+                            <button> SignUp </button>
+                        </NavLink>
+                        <NavLink to="/login">
+                            <button> Login </button>
+                        </NavLink>
+                    </div>
+
+                )
+            }
         </div>
-    {
-        !user && (
-            <div className="signup-login-container">
-                <NavLink to="/signup">
-                    <button> SignUp </button>
-                </NavLink>
-                <NavLink to="/login">
-                    <button> Login </button>
-                </NavLink>
-            </div>
-        )
-    }
+    )
 }
 export default HomePage;
