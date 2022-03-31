@@ -10,6 +10,7 @@ function App() {
     const [videos, setVideos] = useState([])
     const [searchVid, setSearchVid] = useState("")
     const [user, setUser] = useState(null)
+    const navigate = useNavigate()
 
 
     useEffect(() => {
@@ -45,9 +46,17 @@ function App() {
                             />
                         }
                     />
-                </div>
 
-                )
+                    <Route path="/login"
+                        element={<Login setUser={setUser} navigate={navigate} />}
+                    />
+/>
+
+            </Routes>
+
+        </div>
+
+    )
 }
 
-                export default App; 
+export default App; 
