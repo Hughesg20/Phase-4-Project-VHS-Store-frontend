@@ -8,7 +8,6 @@ import Login from "./Login";
 
 function App() {
     const [videos, setVideos] = useState([])
-    const [searchVid, setSearchVid] = useState("")
     const [user, setUser] = useState(null)
     const navigate = useNavigate()
 
@@ -19,9 +18,6 @@ function App() {
             .then(data => setVideos(data))
     }, [])
 
-
-
-    const [page, setPage] = useState("/");
 
     return (
         <div className="App">
