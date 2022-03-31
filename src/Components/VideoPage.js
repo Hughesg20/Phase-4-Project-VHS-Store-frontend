@@ -16,7 +16,7 @@ function VideoPage({ setSearchVid, videos }) {
             <br />
             <Search setSearchVid={setSearchVid} />
             <br />
-            <CharacterCollection videos={videos} />
+            <VideoCollection videos={videos} />
         </Container>
     )
 }

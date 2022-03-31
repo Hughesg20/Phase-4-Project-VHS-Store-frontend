@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import VideoPage from "./VideoPage";
 import Header from "./Header";
 import { Switch, Route } from "react-router-dom";
-import CharacterForm from "./CharacterForm";
 import HomePage from "./HomePage";
 import "../App.css";
 
@@ -17,16 +16,19 @@ function App() {
             .then(data => setVideos(data))
     }, [])
 
+    const updatedVideos = (video) =>
+        setVideos([...videos, video])
+
+    const filteredVideos = videos.filter(({ }) =>
+
+    
+    )
 
     const [page, setPage] = useState("/");
 
     return (
         <div className="App">
-
-
             <Header onChangePage={setPage} />
-
-
             <Switch>
                 <Route exact path="/">
                     <HomePage />
@@ -35,7 +37,7 @@ function App() {
                 <Route path="/videos">
                     <VideoPage
                         setSearchVid={setSearchVid}
-                        videos={filteredVids}
+                        videos={filteredVideos}
                     />
                 </Route>
             </Switch>
