@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from "react";
 import VideoPage from "./VideoPage";
 import Header from "./Header";
-import { Switch, Route } from "react-router-dom";
+import { Switch, Routes, Route, useNavigate } from "react-router-dom";
 import HomePage from "./HomePage";
 import "../App.css";
+import Login from "./Login";
 
 function App() {
     const [videos, setVideos] = useState([])
-    const [searchVid, setSearchVid] = usetate("")
+    const [searchVid, setSearchVid] = useState("")
 
 
     useEffect(() => {
