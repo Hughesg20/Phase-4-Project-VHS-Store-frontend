@@ -8,14 +8,11 @@ unction Signup({ navigate, setUser }) {
     const [passwordConfirm, setPasswordConfirm] = useState("")
     const handleUsername = (e) => setUsername(e.target.value)
     const handlePassword = (e) => setPassword(e.target.value)
-    const handleConfirm = (e) => setPasswordConfirm(e.target.value)
+
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        if (!passwordMatch(password, passwordConfirm)) {
-            alert('Your password and password confirmation do not match.')
-            return false
-        }
+
         const newUser = { username: username, password: passwordConfirm }
         fetch(`/signup`, {
             method: "POST",
@@ -34,9 +31,35 @@ unction Signup({ navigate, setUser }) {
 
         <div>
             <h1 align="center">Login</h1>
+            <div className="login">
+                <form className="signup-form" onSubmit={(e) => handleSubmit(e)}>
+                    <label>Username</label>
+                    <input
+                        type="text"
+                        value={username}
+                        placeholder="username"
+                        onChange={(e) => handleUsername(e)}
+                    />
+                    <label> Password</label>
+                    <input
+                        type="password"
+                        value={password}
+                        placeholder="password"
+                        onChange={(e) => handlePassword(e)}
+                    />
+                    <div align="center" className="submit-login">
+                        <button type="submit"> Signup </button>
+                    </div>
+                    <NavLink to="/login">
+                        <div align="center" className="login">
+                            <button> Login </button>
+                        </div>
+                    </NavLink>
+                </form>
+            </div>
 
-
-            )
+        </div>
+    )
 
 }
-            export default Signup;
+export default Signup;

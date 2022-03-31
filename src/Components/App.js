@@ -9,6 +9,7 @@ import Login from "./Login";
 function App() {
     const [videos, setVideos] = useState([])
     const [searchVid, setSearchVid] = useState("")
+    const [user, setUser] = useState(null)
 
 
     useEffect(() => {
@@ -17,34 +18,36 @@ function App() {
             .then(data => setVideos(data))
     }, [])
 
-    const updatedVideos = (video) =>
-        setVideos([...videos, video])
 
-    const filteredVideos = videos.filter(({ }) =>
-
-    
-    )
 
     const [page, setPage] = useState("/");
 
     return (
         <div className="App">
-            <Header onChangePage={setPage} />
-            <Switch>
+            {user && <NavBar />}
+            <Routes>
                 <Route exact path="/">
-                    <HomePage />
-                </Route>
+                    <HomePage user={user} />
 
-                <Route path="/videos">
-                    <VideoPage
-                        setSearchVid={setSearchVid}
-                        videos={filteredVideos}
+
+                    <Route path="/videos"
+                        element={<VideosCollection videos={videos} />}
                     />
-                </Route>
-            </Switch>
-        </div>
 
-    )
+                    <Route
+                        path="/videos/:id"
+                        element={
+                            <VideoPage
+                                videos={videos}
+                                user={user}
+                                setUser={setUser}
+
+                            />
+                        }
+                    />
+                </div>
+
+                )
 }
 
-export default App; 
+                export default App; 
