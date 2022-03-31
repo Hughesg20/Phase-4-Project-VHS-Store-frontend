@@ -30,7 +30,7 @@ function Signup({ navigate, setUser }) {
     return (
 
         <div>
-            <h1 align="center">Login</h1>
+            <h1 align="center">Signup</h1>
             <div className="login">
                 <form className="signup-form" onSubmit={(e) => handleSubmit(e)}>
                     <label>Username</label>

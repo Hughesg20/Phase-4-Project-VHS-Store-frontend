@@ -8,6 +8,7 @@ import Login from "./Login";
 import VideoCollection from "./VideoCollection";
 import Signup from "./Signup";
 
+
 function App() {
     const [videos, setVideos] = useState([])
     const [user, setUser] = useState(null)
@@ -47,6 +48,10 @@ function App() {
 
                 <Route path="/login"
                     element={<Login setUser={setUser} />}
+                />
+
+                <Route path="/signup"
+                    element={<Signup setUser={setUser} />}
                 />
 
 
