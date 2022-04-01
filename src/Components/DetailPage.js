@@ -1,6 +1,13 @@
 import React from "react";
 
-function DetailPage() {
+function DetailPage({ id, r, user, setUser }) {
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        const dataSubmit = {
+
+        }
+    }
 
 
 

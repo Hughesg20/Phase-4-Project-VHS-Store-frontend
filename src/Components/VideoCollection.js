@@ -1,6 +1,6 @@
 import React from "react";
 import VideoCard from "./VideoCard";
-
+import DetailPage from "./DetailPage";
 
 function VideoCollection({ videos }) {
     // {
@@ -16,6 +16,8 @@ function VideoCollection({ videos }) {
 
         < div className="video-collection">
             <ul className="cards">{videos.map((videoObj) => <VideoCard key={videoObj.id} {...videoObj} />)}</ul>
+
+            <ul className="cards">{videos.map((videoObj) => <DetailPage key={videoObj.id} {...videoObj} />)}</ul>
         </div >
 
     )
