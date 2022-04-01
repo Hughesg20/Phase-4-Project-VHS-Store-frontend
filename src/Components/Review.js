@@ -2,7 +2,7 @@ import React from 'react'
 
 function Review({review}) {
   return (
-    <div>{review.review}</div>
+    <li>{review.review}</li>
   )
 }
 

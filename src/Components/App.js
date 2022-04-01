@@ -42,9 +42,13 @@ function App() {
                 <Route path="/"
                     element={<HomePage videos={videos} user={user} />}
                 />
+                <Route
+                    path="/profile"
+                    element={<Profile user={user} setUser={setUser} />}
+                />
 
                 <Route path="/videos"
-                    element={<VideoPage videos={videos} setVideos={setVideos} />}
+                    element={<VideoPage videos={videos} setVideos={setVideos} user={user} />}
                 />
 
                 <Route
@@ -73,10 +77,7 @@ function App() {
                     path="/logout"
                     element={<LogOut setUser={setUser} navigate={navigate} />}
                 />
-                <Route
-                    path="/profile"
-                    element={<Profile user={user} setUser={setUser} />}
-                />
+                
 
 
 

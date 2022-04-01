@@ -8,14 +8,9 @@ function DetailPage({videos, user, setUser }) {
     let { id } = useParams();
     const idv2 = id.substring(1)
  
-    function thing (){
-        return(
-        <div>{videos[idv2].reviews.map(review=> <Review review = {review} />)}</div>
-        )
-    }
     return (
-        <button onClick={thing}>yo</button>
-
+        <ul>{videos[idv2].reviews.map(review=> <Review review = {review} />)}</ul>
+        
     )}
 
 

@@ -24,8 +24,8 @@ function Signup({ navigate, setUser }) {
     const handleSubmit = (e) => {
         e.preventDefault();
         if (password == passwordConfirm) {
-        const newUser = { firstname: firstname, lastname: lastname, age: age, email: email, username: username, password: password }
-        fetch(`http://localhost:4000/clients`, {
+        const newUser = { first_name: firstname, last_name: lastname, age: age, email: email, username: username, password: password }
+        fetch(`/clients`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

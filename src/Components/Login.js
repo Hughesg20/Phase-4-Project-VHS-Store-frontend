@@ -7,7 +7,7 @@ function Login({ setUser, navigate }) {
     const [password, setPassword] = useState("");
     const handleUsername = (e) => setUsername(e.target.value);
     const handlePassword = (e) => setPassword(e.target.value);
-    const [loading, setLoading] = useState(false)
+   
 
 
 

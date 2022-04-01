@@ -36,7 +36,7 @@ function Profile({ user, setUser }) {
     const handleSubmit = (e) => {
         e.preventDefault();
         if (password == passwordConfirm) {
-        const newUser = { firstname: firstname, lastname: lastname, age: age, email: email, username: username, password: password }
+        const newUser = { first_name: firstname, last_name: lastname, age: age, email: email, username: username, password: password }
         fetch(`/clients/${user.id}`, {
             method: "PATCH",
             headers: {
@@ -45,11 +45,16 @@ function Profile({ user, setUser }) {
             body: JSON.stringify(newUser),
         })
             .then((r) => r.json())
-            
-            
-        
     }
     };
+
+    const handleDelete = () => {
+
+        fetch(`/clients/${user.id}`,{
+            method: 'DELETE'})
+        }
+        
+    
 
     return (
 
@@ -117,7 +122,11 @@ function Profile({ user, setUser }) {
                     </div>
                     
                     
+                    
                 </form>
+                <div style={{align:"center"}} className="delete account">
+                        <button onClick={() => handleDelete()}> Delete profile</button>
+                    </div>
             </div>
 
         </div>

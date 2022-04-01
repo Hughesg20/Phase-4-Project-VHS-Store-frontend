@@ -13,6 +13,11 @@ function Header() {
             <NavLink to='/logout'>
                 <button> Log Out </button>
             </NavLink>
+            <NavLink to = '/profile'>
+                <button>Profile</button>
+            </NavLink>
+                    
+                
         </div>
     )
 }
