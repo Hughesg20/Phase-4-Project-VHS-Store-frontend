@@ -13,30 +13,26 @@ import DetailPage from "./DetailPage";
 
 function App() {
     const [videos, setVideos] = useState([])
-    const [user, setUser] = useState(null)
     const [reviews, setReviews] = useState([])
     const navigate = useNavigate()
 
-    const userReviews = user && user.reviews.map((r) =>
-        <DetailPage key={r.id} r={r} user={user} setUser={setUser} />);
+    const [user, setUser] = useState(null);
+    useEffect(() => {
+      fetch("/me").then((r) => {
+        if (r.ok) {
+          r.json().then((data) => setUser(data));
+        }
+      });
+    }, []);
+
+        
 
     useEffect(() => {
-        fetch("http://localhost:4000/clients")
-            .then((r) => r.json())
-            .then(console.log)
-    }, [user])
-
-    useEffect(() => {
-        fetch("http://localhost:4000/vhs_tapes")
+        fetch("vhs_tapes")
             .then((r) => r.json())
             .then(setVideos)
     }, [user])
 
-    useEffect(() => {
-        fetch("http://localhost:4000/vhs_tapes/1")
-            .then((r) => r.json())
-            .then(data => data.reviews.map(review => console.log(review.review)))
-    }, [user])
 
     return (
         <div className="App">

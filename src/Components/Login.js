@@ -11,28 +11,27 @@ function Login({ setUser, navigate }) {
 
 
 
-    function handleSubmit(e) {
+    const handleLogin = (e) => {
         e.preventDefault();
-        setLoading(true);
-        fetch("/login", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({ username, password }),
-        })
-            .then((r) => {
-                setLoading(false);
-                if (r.ok) {
-                    r.json().then((user) => (console.log('POST login information')));
+        fetch(`/login`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            username: username,
+            password: password,
+          }),
+        }).then((r) => {
+          if (r.ok) {
+            r.json().then((data) => {
+              setUser(data);
+              navigate("/");
+            });
+          }
+        });
+      };
 
-                    navigate("/home");
-                };
-
-            })
-    };
-
-    const handleLogin = (e) => handleSubmit(e);
 
     return (
         <div>
