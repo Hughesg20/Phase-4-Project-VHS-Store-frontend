@@ -33,9 +33,9 @@ function App() {
     }, [user])
 
     useEffect(() => {
-        fetch("http://localhost:4000/reviews")
+        fetch("http://localhost:4000/vhs_tapes/1")
             .then((r) => r.json())
-            .then(console.log)
+            .then(data => data.reviews.map(review => console.log(review.review)))
     }, [user])
 
     return (
@@ -58,6 +58,7 @@ function App() {
                             videos={videos}
                             user={user}
                             setUser={setUser}
+                            setReviews={setReviews}
 
                         />
                     }
