@@ -3,14 +3,21 @@ import VideoCollection from "./VideoCollection";
 
 
 
-function VideoPage({ setSearchVid, videos }) {
+
+function VideoPage({ videos, setVideos }) {
 
 
 
 
 
     return (
-        <div>test</div>
+        <div>
+            <h1 align="center">Videos</h1>
+            <div className="videos">
+                <VideoCollection videos={videos} />
+            </div>
+
+        </div>
     )
 }
 export default VideoPage;

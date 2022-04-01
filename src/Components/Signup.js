@@ -8,13 +8,16 @@ function Signup({ navigate, setUser }) {
     const [passwordConfirm, setPasswordConfirm] = useState("")
     const handleUsername = (e) => setUsername(e.target.value)
     const handlePassword = (e) => setPassword(e.target.value)
+    // const handleFirstName = (e) => setUsername(e.target.value)
+    // const handleMiddleName = (e) => setUsername(e.target.value)
+    // const handleLastName = (e) => setUsername(e.target.value)
 
 
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        const newUser = { username: username, password: passwordConfirm }
-        fetch(`/signup`, {
+        const newUser = { username: username, password: password }
+        fetch(`http://localhost:4000/clients`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

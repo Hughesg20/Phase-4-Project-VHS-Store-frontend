@@ -7,37 +7,46 @@ import "../App.css";
 import Login from "./Login";
 import VideoCollection from "./VideoCollection";
 import Signup from "./Signup";
-
+import LogOut from "./LogOut";
+import Profile from "./Profile"
+import DetailPage from "./DetailPage";
 
 function App() {
     const [videos, setVideos] = useState([])
     const [user, setUser] = useState(null)
-    // const navigate = useNavigate()
+
+    const navigate = useNavigate()
 
 
-    // useEffect(() => {
-    //     fetch(" ")
-    //         .then((r) => r.json())
-    //         .then(data => setVideos(data))
-    // }, [])
+    useEffect(() => {
+        fetch("http://localhost:4000/clients")
+            .then((r) => r.json())
+            .then(console.log)
+    }, [user])
+
+    useEffect(() => {
+        fetch("http://localhost:4000/vhs_tapes")
+            .then((r) => r.json())
+            .then(setVideos)
+    }, [user])
 
 
     return (
         <div className="App">
-            {user && <Header />}
+            {<Header />}
             <Routes>
                 <Route path="/"
                     element={<HomePage videos={videos} user={user} />}
                 />
 
                 <Route path="/videos"
-                    element={<VideoCollection videos={videos} />}
+                    element={<VideoPage videos={videos} setVideos={setVideos} />}
                 />
 
                 <Route
                     path="/videos/:id"
                     element={
-                        <VideoPage
+                        <DetailPage
                             videos={videos}
                             user={user}
                             setUser={setUser}
@@ -51,8 +60,19 @@ function App() {
                 />
 
                 <Route path="/signup"
-                    element={<Signup setUser={setUser} />}
+                    element={<Signup setUser={setUser} navigate={navigate} />}
                 />
+
+                <Route
+                    path="/logout"
+                    element={<LogOut setUser={setUser} navigate={navigate} />}
+                />
+                <Route
+                    path="/profile"
+                    element={<Profile user={user} setUser={setUser} />}
+                />
+
+
 
 
             </Routes>

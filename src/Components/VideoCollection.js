@@ -3,13 +3,21 @@ import VideoCard from "./VideoCard";
 
 
 function VideoCollection({ videos }) {
+    // {
+    //     const card = Object.keys(videos).map((videoObj) => (
+    //         <VideoCard key={videoObj.id} videos={videoObj} />
+    //     ))
+    //     console.log(card)
+    // }
 
-    //const card = videos.map((videoObj) => (
-    //  <VideoCard key={videoObj.id} videos={videoObj} />
-    //))
 
     return (
-        <div>video collection comp</div>
+
+
+        < div className="video-collection">
+            <ul className="cards">{videos.map((videoObj) => <VideoCard key={videoObj.id} {...videoObj} />)}</ul>
+        </div >
+
     )
 }
 
@@ -17,3 +25,9 @@ function VideoCollection({ videos }) {
 
 
 export default VideoCollection;
+
+
+// {Object.keys(videos).map((videoObj) => (
+//     <VideoCard key={videoObj.id} videos={videoObj} />
+// ))
+// }

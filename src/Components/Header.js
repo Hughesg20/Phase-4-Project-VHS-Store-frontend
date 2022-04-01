@@ -4,13 +4,15 @@ import { NavLink } from 'react-router-dom'
 function Header() {
     return (
         <div className='header'>
-            <NavLink exact to='/'>
+            <NavLink to='/'>
                 <button> Home </button>
             </NavLink>
             <NavLink to='/videos'>
-                <button> Videos 🍴 </button>
+                <button> Videos </button>
             </NavLink>
-
+            <NavLink to='/logout'>
+                <button> Log Out </button>
+            </NavLink>
         </div>
     )
 }
