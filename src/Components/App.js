@@ -20,7 +20,8 @@ function App() {
     useEffect(() => {
       fetch("/me").then((r) => {
         if (r.ok) {
-          r.json().then((data) => setUser(data));
+          r.json()
+          .then((data) => setUser(data));
         }
       });
     }, []);
@@ -28,7 +29,7 @@ function App() {
         
 
     useEffect(() => {
-        fetch("vhs_tapes")
+        fetch("/vhs_tapes")
             .then((r) => r.json())
             .then(setVideos)
     }, [user])

@@ -6,9 +6,7 @@ function HomePage({ user }) {
     return (
         <div align="center" className="homepage">
             <h1> Welcome to VHS Store </h1>
-            <p>
-                Login/signup is required to rent a video
-            </p>
+            
 
             {
                 !user && (

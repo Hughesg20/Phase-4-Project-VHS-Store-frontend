@@ -104,8 +104,8 @@ function Signup({ navigate, setUser }) {
                         <button type="submit"> Signup </button>
                     </div>
                     <div>
-                        {submitted?<NavLink to="/signup">
-                            <button> SignUp </button>
+                        {submitted?<NavLink to="/login">
+                            <button >Login </button>
                         </NavLink> : null}
                         
                     </div>

@@ -12,7 +12,7 @@ function LogOut({ navigate, setUser }) {
             .then((r) => r.json())
             .then(() => {
                 setUser(null);
-                navigate("/");
+                navigate("/login");
             });
     };
 
